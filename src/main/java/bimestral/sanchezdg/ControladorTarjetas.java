@@ -49,4 +49,33 @@ public class ControladorTarjetas {
         estatus.setMensaje("Tarjeta guardada con exito");
         return estatus;
     }
+    
+     //Generaremos actualizar
+     @PutMapping("/mensaje")
+    public Estatus actualizar(@RequestBody String json)throws Exception{
+        
+        //primero convertimos este String json a un objeto java
+        ObjectMapper maper=new ObjectMapper();
+        TarjetaHabiente tarjeta =maper.readValue(json, TarjetaHabiente.class);
+        repoTar.save(tarjeta);
+        System.out.println("Se actualizo: "+tarjeta);
+        Estatus estatus = new Estatus();
+        estatus.setSuccess(true);
+        estatus.setMensaje("Tarjeta guardada con exito");
+                return estatus;
+    }
+    
+        //Generamos borrar
+    @DeleteMapping("/mensaje/{id}")
+    public Estatus borrarPoRId(@PathVariable String id)throws Exception{
+        
+        TarjetaHabiente tarjeta = new TarjetaHabiente();
+        repoTar.deleteById(id);
+       
+        Estatus estatus = new Estatus();
+        estatus.setSuccess(true);
+        estatus.setMensaje("Tarjeta borrada con exito");
+                return estatus;
+    
+    }
 }
