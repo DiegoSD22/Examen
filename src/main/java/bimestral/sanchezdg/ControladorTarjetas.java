@@ -51,7 +51,7 @@ public class ControladorTarjetas {
     }
     
      //Generaremos actualizar
-     @PutMapping("/mensaje")
+     @PutMapping("/tarjetaAct")
     public Estatus actualizar(@RequestBody String json)throws Exception{
         
         //primero convertimos este String json a un objeto java
@@ -62,11 +62,11 @@ public class ControladorTarjetas {
         Estatus estatus = new Estatus();
         estatus.setSuccess(true);
         estatus.setMensaje("Tarjeta guardada con exito");
-                return estatus;
+        return estatus;
     }
     
         //Generamos borrar
-    @DeleteMapping("/mensaje/{id}")
+    @DeleteMapping("/tarjetaB/{id}")
     public Estatus borrarPoRId(@PathVariable String id)throws Exception{
         
         TarjetaHabiente tarjeta = new TarjetaHabiente();
@@ -75,7 +75,7 @@ public class ControladorTarjetas {
         Estatus estatus = new Estatus();
         estatus.setSuccess(true);
         estatus.setMensaje("Tarjeta borrada con exito");
-                return estatus;
+        return estatus;
     
     }
 }
