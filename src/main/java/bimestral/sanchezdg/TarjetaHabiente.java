@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 
 /**
  *
- * @author T-107
+ * @author DiegoSD
  */
 public class TarjetaHabiente {
     @Id
