@@ -65,7 +65,7 @@ public class ControladorTarjetas {
         return estatus;
     }
     
-        //Generamos borrar
+    //Generamos borrar
     @DeleteMapping("/tarjetaB/{id}")
     public Estatus borrarPoRId(@PathVariable String id)throws Exception{
         
