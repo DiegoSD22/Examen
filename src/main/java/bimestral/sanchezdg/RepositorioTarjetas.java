@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  *
- * @author T-107
+ * @author DiegoSD
  */
 public interface RepositorioTarjetas extends MongoRepository<TarjetaHabiente, String>{
     
