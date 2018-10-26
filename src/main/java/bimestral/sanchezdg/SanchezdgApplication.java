@@ -20,11 +20,9 @@ public class SanchezdgApplication implements CommandLineRunner{
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println("Hola mundo");
-        //repoPagos.servicioPagar();
-
+        
         //Guarda un mensaje
-        //repoMensa.save(new Mensajito("Malo", "Topoyiyo", LocalDate.now()));
+        //repoTar.save(new TarjetaHabiente("1", "Diego", "diegosd2297@gmail.com", new Tarjeta(5543632, "banamex", 99999f)));
         //Buscamos todos los mensajes
         for(TarjetaHabiente tar: repoTar.findAll()){
         System.out.println(tar);
@@ -34,7 +32,7 @@ public class SanchezdgApplication implements CommandLineRunner{
         //Buscamos por titulo
         //repoTar.save(new Mensajito("malo", "yo", "topoyiya", LocalDate.now()));
         //System.out.println(repoTar.findByTitulo("yo"));
-        //repoTar.save(new TarjetaHabiente("1", "Diego", "diegosd2297@gmail.com", new Tarjeta(5543632, "banamex", 99999f)));
+        
 
     }    
 }
