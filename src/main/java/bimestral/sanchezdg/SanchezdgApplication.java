@@ -33,8 +33,10 @@ public class SanchezdgApplication implements CommandLineRunner{
         //repoTar.save(new Mensajito("malo", "yo", "topoyiya", LocalDate.now()));
         //System.out.println(repoTar.findByTitulo("yo"));
         
-	//actualizar un mensaje
-        //sigue borara
+	//Actualizamos una tarjeta
+	    
+	    
+        //Borramos por id
         // TarjetaHabiente tar=new TarjetaHabiente();
         //tar.setId("1");
         // repoTar.delete(tar);
