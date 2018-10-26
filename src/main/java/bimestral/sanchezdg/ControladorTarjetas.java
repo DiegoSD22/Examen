@@ -68,7 +68,7 @@ public class ControladorTarjetas {
     
     //Generamos borrar
     @DeleteMapping("/tarjetaB/{id}")
-    public Estatus borrarPoRId(@PathVariable String id)throws Exception{
+    public Estatus borrarPorId(@PathVariable String id)throws Exception{
         
         TarjetaHabiente tarjeta = new TarjetaHabiente();
         repoTar.deleteById(id);
