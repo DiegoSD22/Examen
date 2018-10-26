@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 /**
  *
- * @author T-107
+ * @author DiegoSD
  */
 @RestController
 @RequestMapping("/api")
@@ -40,7 +40,7 @@ public class ControladorTarjetas {
     //Vamos a guardar para ello siempre se ocupa el post
     @PostMapping(path="/tarjeta", consumes="application/json")
     public Estatus guardar(@RequestBody String json) throws Exception{
-        //Recibimos a json con los brazos abiertos
+        //Primero convertimos este String json a un objeto java
         ObjectMapper maper=new ObjectMapper();
         TarjetaHabiente tarjeta=maper.readValue(json, TarjetaHabiente.class);
         System.out.println(tarjeta);
@@ -52,9 +52,9 @@ public class ControladorTarjetas {
     
      //Generaremos actualizar
      @PutMapping("/tarjetaAct")
-    public Estatus actualizar(@RequestBody String json)throws Exception{
+     public Estatus actualizar(@RequestBody String json)throws Exception{
         
-        //primero convertimos este String json a un objeto java
+        //Primero convertimos este String json a un objeto java
         ObjectMapper maper=new ObjectMapper();
         TarjetaHabiente tarjeta =maper.readValue(json, TarjetaHabiente.class);
         repoTar.save(tarjeta);
