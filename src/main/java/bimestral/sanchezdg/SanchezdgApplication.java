@@ -35,9 +35,9 @@ public class SanchezdgApplication implements CommandLineRunner{
         
 	//actualizar un mensaje
         //sigue borara
-        // Mensaje m=new Mensaje();
-        //m.setId("Hola");
-        // repoMensaje.delete(m);
+        // TarjetaHabiente tar=new TarjetaHabiente();
+        //tar.setId("1");
+        // repoTar.delete(tar);
 
     }    
 }
