@@ -26,15 +26,15 @@ public class SanchezdgApplication implements CommandLineRunner{
         //Guarda un mensaje
         //repoMensa.save(new Mensajito("Malo", "Topoyiyo", LocalDate.now()));
         //Buscamos todos los mensajes
-        //for(Mensajito mensa: repoMensa.findAll()){
-        //  System.out.println(mensa);
-        //}
+        for(TarjetaHabiente tar: repoTar.findAll()){
+        System.out.println(tar);
+        }
         //Buscamos por id
-        //System.out.println(repoMensa.findById("5bb41e814fe49820f885ba4a").get());
+        System.out.println(repoTar.findById("1").get());
         //Buscamos por titulo
-        //repoMensa.save(new Mensajito("malo", "yo", "topoyiya", LocalDate.now()));
-        //System.out.println(repoMensa.findByTitulo("yo"));
-        repoTar.save(new TarjetaHabiente("1", "Diego", "diegosd2297@gmail.com", new Tarjeta(5543632, "banamex", 99999f)));
+        //repoTar.save(new Mensajito("malo", "yo", "topoyiya", LocalDate.now()));
+        //System.out.println(repoTar.findByTitulo("yo"));
+        //repoTar.save(new TarjetaHabiente("1", "Diego", "diegosd2297@gmail.com", new Tarjeta(5543632, "banamex", 99999f)));
 
     }    
 }
