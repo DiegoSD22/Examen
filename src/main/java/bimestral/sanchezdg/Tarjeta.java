@@ -7,7 +7,7 @@ package bimestral.sanchezdg;
 
 /**
  *
- * @author T-107
+ * @author DiegoSD
  */
 public class Tarjeta {
     private int numero;
