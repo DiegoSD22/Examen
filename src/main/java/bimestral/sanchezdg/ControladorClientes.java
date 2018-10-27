@@ -5,7 +5,6 @@
  */
 package bimestral.sanchezdg;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,65 +17,66 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 /**
  *
- * @author DiegoSD
+ * @author T-107
  */
+
 @RestController
 @RequestMapping("/api")
-public class ControladorTarjetas {
-    @Autowired RepositorioTarjetas repoTar;
-    
-    
-    //Buscamos todos
-    @GetMapping(path="/tarjeta")
-    public List<TarjetaHabiente> todos(){
-        return repoTar.findAll();
-    }
-    
-    //Buscamos por id
-    @GetMapping(path="/tarjeta/{id}")
-    public TarjetaHabiente buscarPorId(@PathVariable String id){
-        return repoTar.findById(id).get();
-    }
+public class ControladorClientes {
+    @Autowired RepositorioCliente repoCli;
     
     //Vamos a guardar para ello siempre se ocupa el post
-    @PostMapping(path="/tarjeta", consumes="application/json")
+    @PostMapping(path="/cliente", consumes="application/json")
     public Estatus guardar(@RequestBody String json) throws Exception{
         //Primero convertimos este String json a un objeto java
         ObjectMapper maper=new ObjectMapper();
-        TarjetaHabiente tarjeta=maper.readValue(json, TarjetaHabiente.class);
-        System.out.println(tarjeta);
+        Cliente cli=maper.readValue(json, Cliente.class);
+        System.out.println(cli);
         Estatus estatus= new Estatus();
         estatus.setSuccess(true);
-        estatus.setMensaje("Tarjeta guardada con exito");
+        estatus.setMensaje("Cliente guardado con exito");
         return estatus;
     }
     
-     //Generaremos actualizar
-     @PutMapping("/tarjetaAct")
+    //Buscamos todos
+    @GetMapping(path="/cliente")
+    public List<Cliente> todos(){
+        return repoCli.findAll();
+    }
+    
+        //Buscamos por id
+    @GetMapping(path="/cliente/{id}")
+    public Cliente buscarPorId(@PathVariable String id){
+        return repoCli.findById(id).get();
+    }
+    
+    //Generaremos actualizar
+     @PutMapping("/clienteAct")
      public Estatus actualizar(@RequestBody String json)throws Exception{
         
         //Primero convertimos este String json a un objeto java
         ObjectMapper maper=new ObjectMapper();
-        TarjetaHabiente tarjeta =maper.readValue(json, TarjetaHabiente.class);
-        repoTar.save(tarjeta);
-        System.out.println("Se actualizo: "+tarjeta);
+        Cliente cli =maper.readValue(json, Cliente.class);
+        repoCli.save(cli);
+        System.out.println("Se actualizo: "+cli);
         Estatus estatus = new Estatus();
         estatus.setSuccess(true);
-        estatus.setMensaje("Tarjeta guardada con exito");
+        estatus.setMensaje("Cliente editado con exito");
         return estatus;
     }
     
-    //Generamos borrar
-    @DeleteMapping("/tarjetaB/{id}")
+     //Generamos borrar
+    @DeleteMapping("/clienteB/{id}")
     public Estatus borrarPorId(@PathVariable String id)throws Exception{
         
-        TarjetaHabiente tarjeta = new TarjetaHabiente();
-        repoTar.deleteById(id);
+        Cliente cli = new Cliente();
+        repoCli.deleteById(id);     
         Estatus estatus = new Estatus();
         estatus.setSuccess(true);
-        estatus.setMensaje("Tarjeta borrada con exito");
+        estatus.setMensaje("Cliente borrado con exito");
         return estatus;
     
     }
